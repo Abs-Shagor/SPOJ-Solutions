@@ -48,6 +48,8 @@ int main() {
     vpp[0].c = ans;
     for(ll i=1 ; i<q ; i++) {
         ll new_L = vpp[i].a, new_R = vpp[i].b;
+
+        // first extend the range
         while(L>new_L) {
             --L;
             mapx[arr[L]]++;
@@ -59,6 +61,7 @@ int main() {
             if(mapx[arr[R]]==1) ++ans;
         }
 
+        // then reduce it
         while(L<new_L) {
             mapx[arr[L]]--;
             if(mapx[arr[L]]<=0) --ans;
